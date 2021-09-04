@@ -1,0 +1,13 @@
+Func _Zip_Count($hZipFile)
+    Local $DLLChk = _Zip_DllChk()
+    If $DLLChk <> 0 Then Return SetError($DLLChk, 0, 0) ;no dll
+    If Not FileExists($hZipFile) Then Return SetError(1, 0, 0) ;no zip file
+    
+    $items = _Zip_List($hZipFile)
+    Return UBound($items) - 1
+EndFunc   ;==>_Zip_Count
+Line 300 (File "C:\Program Files\AutoIt3\Beta\Include\Zip.au3"):
+$hList = $oApp.Namespace($hZipFile).Items
+$hList = $oApp.Namespace($hZipFile)^ERROR
+
+Error: Object referenced outside a "With" statement.
